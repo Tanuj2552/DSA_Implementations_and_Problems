@@ -32,6 +32,16 @@ void print_list(Node** h){
   cout << endl;
 }
 
+void lens(Node** h){
+  Node* temp = *h;
+  int l = 0;
+  while(temp){
+    l++;
+    temp = temp->next;
+  }
+  cout << "len of linked list is " << l << endl;
+}
+
 int main(){
   int n;
   cin >> n;
@@ -41,5 +51,7 @@ int main(){
     cin >> x;
     insert_at_head(&head,x);
   }
-  print_list(&head);
+  print_list(&head); 
+  lens(&head);
+  return 0;
 }
