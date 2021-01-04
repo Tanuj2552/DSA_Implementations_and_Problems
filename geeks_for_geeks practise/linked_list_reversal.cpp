@@ -1,13 +1,8 @@
-// { Driver Code Starts
-//Initial Template for C++
-
-// C program to find n'th Node in linked list
 #include <stdio.h>
 #include <stdlib.h>
 #include<iostream>
 using namespace std;
 
-/* Link list Node */
 struct Node {
     int data;
     struct Node *next;
@@ -18,8 +13,6 @@ struct Node {
     }
 };
 
-
-/* Function to get the middle of the linked list*/
 struct Node *reverseList(struct Node *head);
 
 void printList(struct Node *head)
@@ -63,20 +56,7 @@ int main()
     return 0;
 }
 
-// } Driver Code Ends
-
-
-/* Linked List Node structure:
-
-struct Node
-{
-    int data;
-    struct Node *next;
-}
-
-*/
 #include <stack>
-// Should reverse list and return new head.
 struct Node* reverseList(struct Node *head)
 {
     stack <int> s;
