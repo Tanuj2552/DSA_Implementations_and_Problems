@@ -25,6 +25,7 @@ void insert_at_head(Node** h, int x){
 
 void print_list(Node** h){
   Node* temp = *h;
+  cout << "The linked list is : ";
   while(temp){
     cout << temp->data << " " ;
     temp = temp->next;
@@ -42,6 +43,21 @@ void lens(Node** h){
   cout << "len of linked list is " << l << endl;
 }
 
+void delete_element(Node** h, int k){
+  Node* temp = *h;
+  if(temp->data == k){*h = temp->next;return ;}
+  int c = 0;
+  while(temp->next){
+    if(temp->next->data == k){
+      temp ->next = temp->next->next;c++;
+    }
+    temp = temp->next;
+  }
+  if(c!=1)
+    cout << "element not present in the linked list!! " << endl;
+  return;
+}
+
 int main(){
   int n;
   cin >> n;
@@ -53,5 +69,11 @@ int main(){
   }
   print_list(&head); 
   lens(&head);
+
+  int dele;
+  cout << "enter the element to be deleted :" << endl;
+  cin >> dele;
+  delete_element(&head, dele);
+  print_list(&head); 
   return 0;
 }
