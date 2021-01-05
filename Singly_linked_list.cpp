@@ -46,20 +46,31 @@ void lens(Node** h){
 void delete_element(Node** h, int k){
   Node* temp = *h;
   if(temp->data == k){*h = temp->next;return ;}
-  int c = 0;
   while(temp->next){
     if(temp->next->data == k){
-      temp ->next = temp->next->next;c++;
+      temp ->next = temp->next->next;return;
     }
     temp = temp->next;
   }
-  if(c!=1)
+
     cout << "element not present in the linked list!! " << endl;
   return;
 }
 
+void find_pos(Node** h, int k){
+  Node* temp = *h;
+  int pos = 0;
+  while(temp){
+    if(temp->data == k){cout << "the element " << k << " is at position " << pos;return;}
+    temp = temp->next;
+    pos++;
+  }
+  cout << "element not found!!!" ;
+}
+
 int main(){
   int n;
+  cout << "Enter the number of elements of the linked list: ";
   cin >> n;
   Node* head = NULL;
   for(int i=0;i<n;i++){
@@ -75,5 +86,10 @@ int main(){
   cin >> dele;
   delete_element(&head, dele);
   print_list(&head); 
+
+  int ch;
+  cout << "enter the element to be checked and find its pos : ";
+  cin >> ch;
+  find_pos(&head, ch);
   return 0;
 }
