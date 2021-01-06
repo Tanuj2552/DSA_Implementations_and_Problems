@@ -1,3 +1,5 @@
+// the link for the question is https://practice.geeksforgeeks.org/problems/delete-middle-element-of-a-stack/1
+
 // { Driver Code Starts
 //Initial template for C++
 
