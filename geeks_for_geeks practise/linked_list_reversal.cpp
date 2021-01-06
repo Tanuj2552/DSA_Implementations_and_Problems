@@ -74,5 +74,6 @@ struct Node* reverseList(struct Node *head)
         te = tem;
         s.pop();
     }
+    
     return ans;
 }
