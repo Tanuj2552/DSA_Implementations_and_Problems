@@ -91,5 +91,6 @@ int main(){
   cout << "enter the element to be checked and find its pos : ";
   cin >> ch;
   find_pos(&head, ch);
+  
   return 0;
 }
