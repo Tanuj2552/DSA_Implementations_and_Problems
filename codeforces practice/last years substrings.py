@@ -1,3 +1,5 @@
+# the link for the question is https://codeforces.com/contest/1462/problem/B
+
 for _ in range(int(input())):
 	n = int(input())
 	s = input()
