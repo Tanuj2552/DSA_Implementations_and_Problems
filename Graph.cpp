@@ -19,7 +19,7 @@ public:
         graph[b].push_back(a);
     }
 
-    void print(){
+    void print(int v = 0){
         for (int vertice = 0; vertice < size; vertice++){
             if(graph[vertice].size() == 0){ continue;}
             cout << "Vertice is " << vertice << endl;
@@ -31,18 +31,21 @@ public:
         }
     }
 
-    void dfs(){
-        bool check[size];
+    void bfs(int v = 0){
+        bool check[size]={0};
         queue<int> q;
 
-        for(int i=0;i<size;i++){
+        for(int i=v;i<size;i++){
             if(graph[i].size() == 0){continue;}
                 q.push(i);                
                 check[i] = true;
                 break;
         }
         
-        cout << "Starting the DFS of the Graph from the node with minimum value..!" << endl;
+        if(v == 0)
+            cout << "Starting the BFS of the Graph from the node with minimum value..!" << endl;
+        else
+            cout << "Starting the BFS of the Graph from the node with value of " << v << endl;
         cout << q.front() << " --> ";
         check[q.front()] = true;
 
@@ -52,9 +55,7 @@ public:
                 cout << top << " --> ";
             }
             q.pop();
-           // cout << "top is " << top << endl;
             for(auto x:graph[top]){
-             //   cout << x << endl;
                 if(!check[x]){
                     cout << x << " --> ";
                     q.push(x);
@@ -63,6 +64,42 @@ public:
             }
         }
         cout << endl;
+    }
+
+    void dfs(int v = 0){
+        bool check[size]={0};
+        stack<int> s;
+
+        for(int i=v;i<size;i++){
+            if(graph[i].size() == 0){continue;}
+                s.push(i);                
+                check[i] = true;
+                break;
+        }
+        if(v == 0)
+            cout << "Starting the DFS of the Graph from the node with minimum value..!" << endl;
+        else
+            cout << "Starting the DFS of the Graph from the node with value of " << v << endl;
+        cout << s.top() << " --> ";
+        check[s.top()] = true;
+
+        while(!s.empty()){
+            int top = s.top();
+            if(!check[top]){
+                cout << top << " --> ";
+                check[top] = true;
+            }
+            s.pop();
+
+            for(auto x:graph[top]){
+                if(!check[x]){
+                    s.push(x);
+                    //check[x] = true;
+                }
+            }
+        }
+
+
     }
     
 };
@@ -78,6 +115,12 @@ int main(){
         cin >> a >> b;
         graph.insert_edge(a,b);
     }
+    
     graph.print();
-    graph.dfs();
+    cout << "Enter from which node, you want to start the bfs traversal" << endl;
+    int bf; cin >> bf;
+    graph.bfs(bf);
+    cout << "Enter from which node, you want to start the dfs traversal" << endl;
+    int df; cin >> df;
+    graph.dfs(df);
 }
