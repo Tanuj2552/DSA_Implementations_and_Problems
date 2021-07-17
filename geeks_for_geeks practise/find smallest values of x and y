@@ -1,0 +1,51 @@
+// Initial Template for C++
+
+#include <bits/stdc++.h>
+using namespace std;
+
+ // } Driver Code Ends
+
+
+// User function Template for C++
+
+class Solution{
+public:
+    vector<int> findXY(int a, int b){
+        int m, n;
+        if(a<b){m = a;}
+        else{m = b;}
+        
+        int c = 0;
+        for(int i=m+1;i>=2;i--){
+            if((a%i==0)&&(b%i==0)){
+                c = i;
+                break;
+            }
+        }
+        vector <int> v;
+        if(c==0){
+            v.push_back(b);
+            v.push_back(a);
+            return v;
+        }
+        v.push_back(b/c);
+        v.push_back(a/c);
+        return v;
+    }
+};
+
+// { Driver Code Starts.
+
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int a, b;
+        cin>>a>>b;
+        
+        Solution ob;
+        vector<int> v = ob.findXY(a, b);
+        cout<<v[0]<<" "<<v[1]<<"\n";
+    }
+    return 0;
+}  // } Driver Code Ends
