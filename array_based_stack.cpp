@@ -16,7 +16,6 @@ class Stack{
   }
 
   int pop(){
-    if(head == NULL){cout << "pop not possible" << endl; return;}
     if(top==-1){cout << "Empty Stack" << endl;}
     int a = arr[top];
     top--;
