@@ -1,3 +1,7 @@
+// Some of you may be wondering (like me :} ), why does the Floyd's Algorithm work. And precisely, how does it find the loop in O(n) time, and not more than that.
+// So I wrote a simple simulation code to check how many steps does it take to find the loop.
+// I created a linked list of length 1000, and created every loop possible in the list and measured the steps taken to find the loop in each case.
+
 #include <iostream>
 #include <math.h>
 using namespace std;
@@ -47,7 +51,9 @@ int main(){
       last->next = NULL;
   }
 
-  cout << "Maximum Distance covered is " << max_dis;
+  cout << "Maximum Steps taken to find the loop is " << max_dis;
 
   return 0;
 }
+
+// Intrestingly, the max steps taken to find the loop was only 1000, exactly justifying the O(n) time.
